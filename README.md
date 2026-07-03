@@ -43,3 +43,80 @@ Analizar variables eléctricas almacenadas en ThingSpeak mediante MATLAB Online.
 | 4 | Potencia |
 | 5 | Frecuencia |
 | 6 | Factor de Potencia |
+
+---
+
+## Metodología de Análisis
+
+El análisis de datos en MATLAB Online fue dividido en 4 etapas principales:
+
+### Tema 1: Estadística Descriptiva
+En esta etapa se calcularon:
+- Promedio de cada variable
+- Valor máximo
+- Valor mínimo
+
+Se utilizaron funciones de MATLAB como:
+```matlab
+mean()
+max()
+min()
+```
+
+### Tema 2: Comparación entre Variables
+Se realizó una comparación entre:
+- Voltaje
+- Potencia
+
+Esto permitió observar cómo cambios en el voltaje afectan el comportamiento de la potencia.
+
+### Tema 3: Análisis de Tendencias
+Para calcular tendencias se utilizó la función:
+
+```matlab
+polyfit()
+```
+
+Esta función permitió calcular la pendiente de crecimiento de cada variable y determinar si su comportamiento era:
+- Ascendente
+- Descendente
+- Estable
+
+### Tema 4: Detección de Anomalías
+Para detectar cambios bruscos se utilizó:
+
+```matlab
+diff()
+```
+
+Esta función permitió identificar saltos repentinos en las mediciones, como variaciones bruscas de voltaje.
+
+---
+
+## Scripts MATLAB Utilizados
+
+Durante el proyecto se desarrollaron scripts en MATLAB para analizar las seis variables eléctricas.
+
+Funciones principales utilizadas:
+
+- thingSpeakRead()
+- mean()
+- max()
+- min()
+- polyfit()
+- diff()
+
+Ejemplo de script para análisis de voltaje:
+
+```matlab
+readChannelID = 3410710;
+voltaje = thingSpeakRead(readChannelID,'Fields',1);
+
+promedio = mean(voltaje);
+maximo = max(voltaje);
+minimo = min(voltaje);
+
+disp(promedio)
+disp(maximo)
+disp(minimo)
+```
